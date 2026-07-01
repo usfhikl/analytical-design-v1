@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PromptLens V1</title>
+
+
+<link rel="stylesheet"
+href="popup.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">
+PL
+</div>
+
+<div>
+
+<h1>
+PromptLens V1
+</h1>
+
+<p>
+See The Prompt Behind Every Image
+</p>
+<p>
+برجاء قراءة شروط و الهدف من استخدام الاده جيداً " اعمل سكرول لاخر حاجه ب الماوس " </p>
+
+</div>
+
+<span class="badge">
+PRO
+</span>
+
+</div>
+
+<button
+id="analyzeBtn"
+class="primary-btn">
+
+Analyze Current Video
+
+</button>
+
+<div class="thumbnail-card">
+
+<img
+id="thumbnail"
+src=""
+alt="Thumbnail">
+
+<div class="resolution-badge">
+
+<span id="resolutionText">
+Ready
+</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+🎬 Video Information
+</h3>
+
+<div class="info-item">
+
+<label>
+Title
+</label>
+
+<span id="videoTitle">
+-
+</span>
+
+</div>
+
+<div class="info-item">
+
+<label>
+Channel
+</label>
+
+<span id="channelName">
+-
+</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+🤖 Generated Prompt
+</h3>
+
+<textarea
+id="promptOutput"
+readonly
+placeholder="Prompt will appear here..."
+></textarea>
+
+</div>
+
+<div class="actions-grid">
+
+<button id="downloadBtn">
+⬇ Download
+</button>
+
+<button id="chatgptBtn">
+🤖 ChatGPT
+</button>
+
+<button id="geminiBtn">
+✨ Gemini
+</button>
+
+<button id="copyBtn">
+📋 Copy
+</button>
+
+<button id="exportBtn">
+📄 Export
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>
+📊 Analysis Metrics
+</h3>
+
+<div class="score">
+
+<span>
+CTR Score
+</span>
+
+<div class="progress">
+<div id="ctrBar"
+class="fill"></div>
+</div>
+
+</div>
+
+<div class="score">
+
+<span>
+Color Score
+</span>
+
+<div class="progress">
+<div id="colorBar"
+class="fill"></div>
+</div>
+
+</div>
+
+<div class="score">
+
+<span>
+Quality Score
+</span>
+
+<div class="progress">
+<div id="qualityBar"
+class="fill"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<div class="creator">
+
+Built by
+
+<strong>
+Youssef Osama
+</strong>
+
+</div>
+
+<div class="version">
+
+PromptLens V1 • v1.0.0
+
+</div>
+
+</div>
+
+</div>
+
+<div id="toast">
+
+Success
+
+</div>
+
+<script src="popup.js"></script>
+
+    <div class="card">
+
+<h3>
+👨‍💻 Creator
+</h3>
+
+<p>
+Youssef Osama
+</p>
+
+<p>
+Graphic Designer • AI Creator
+</p>
+
+</div>
+<div class="card">
+
+<h3>
+🌐 Connect
+</h3>
+
+<a href="https://www.youtube.com/@useaf">
+YouTube
+</a>
+
+<a href="https://www.linkedin.com/in/youssef-osama1/">
+LinkedIn
+</a>
+
+<a href="https://www.instagram.com/theuseafmen/">
+Instagram
+</a>
+
+<a href="https://t.me/+GeqCZQZQWUk3ZDJk">
+Telegram
+</a>
+
+</div>
+<div id="disclaimerModal" class="modal">
+  <div class="modal-content">
+    <h2>تنبيه هام بخصوص استخدام الأداة</h2>
+
+    <div class="disclaimer-text">
+      <p>
+        تم تطوير هذه الأداة لأغراض تعليمية وإبداعية لمساعدة المصممين وصناع المحتوى...
+      </p>
+
+      <p>
+        هذه الأداة ليست مخصصة لنسخ أو سرقة أعمال الآخرين أو إعادة إنتاجها بشكل مطابق...
+      </p>
+
+      <p>
+        باستخدامك لهذه الأداة فإنك تقر بأن الهدف من استخدامها هو التعلم والتحليل والإبداع...
+      </p>
+    </div>
+
+    <button id="acceptDisclaimer">
+      ✓ لقد قرأت وفهمت التنبيه
+    </button>
+  </div>
+</div>
+
+<div class="legal-wrapper">
+
+    <span class="legal-icon">
+        ℹ️
+    </span>
+
+    <div class="legal-tooltip">
+
+        <strong>تنبيه هام بخصوص استخدام الأداة</strong>
+
+        <br><br>
+
+        تم تطوير هذه الأداة لأغراض تعليمية وإبداعية لمساعدة المصممين وصناع المحتوى على فهم العناصر البصرية داخل الصور.
+
+        <br><br>
+
+        هذه الأداة ليست مخصصة لنسخ أو سرقة أعمال الآخرين أو إعادة إنتاجها بشكل مطابق.
+
+        <br><br>
+
+        الهدف من النتائج هو التعلم والإلهام وفهم العناصر المستخدمة ثم تطوير أفكار جديدة وإضافة لمسات خاصة بالمستخدم.
+
+        <br><br>
+
+        يتحمل المستخدم كامل المسؤولية عن كيفية استخدام النتائج التي توفرها الأداة.
+
+    </div>
+
+</div>
+
+</body>
+</html>
